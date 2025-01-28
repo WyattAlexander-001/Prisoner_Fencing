@@ -3,7 +3,7 @@
 [Link To Game On Itch.io](https://wyattalexander-001.itch.io/prisoner-fencing)
 
 ![image info](./screen_caps/bg.png)
-![image info](./screen_caps/main.png)
+![image info](./screen_caps/main.PNG)
 
 ## Inspiration:
 This game was inspired by a Reddit post on r/gameideas and is my first released game. 
