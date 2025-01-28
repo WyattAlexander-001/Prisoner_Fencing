@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm2jvht54rogn"]
+
+[ext_resource type="Script" path="res://scripts/setup.gd" id="1_qhh1a"]
+[ext_resource type="Texture2D" uid="uid://dtxph3iw3spi6" path="res://assets/images/RedBG.png" id="2_cnna5"]
+
+[node name="Setup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhh1a")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_cnna5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 12.0
+offset_right = 699.0
+offset_bottom = 633.0
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Prisoner's Fencing is a 2-player turn-based strategy game. 
+
+The objective of either outlasting your opponent by having more energy or KILLING them within a set number of turns.
+
+🕹️ Actions Available to Players
+
+WAIT (1-Key)
+The player chooses to stay in their current position.
+Effects: +1 Energy
+
+RETREAT (2-Key)
+The player moves one square away from their opponent.
+Effects:-1 Energy
+
+ADVANCE (3-Key)
+The player moves one square toward their opponent.
+DOUBLE ATTACK DAMAGE on the NEXT turn only.
+If Both Players Advance to the Same Open Square:
+Internal Coin Flip: Determines which player occupies the square.
+Winner: Takes the position.
+Effects:-1 Energy
+
+ATTACK (4-Key)
+Description: The player attempts to attack their opponent.
+Effects:-1 Energy Upon Miss
+Damage: Normal = 3 // Advanced = 6
+If Bother Players Attack, If same strength both players take 0 energy loss, If Advanced vs Normal 3 damage
+
+COUNTER (5-Key)
+Description: The player attempts to counter an incoming attack.
+Effects:
+If Opponent is Attacking:
+Damage Reflection: Reflects the damage back to the attacker at no energy cost.
+If Opponent is Not Attacking:
+Penalty: Player loses 2 Energy.
+
+🏁 Winning Conditions
+Primary Objective: Eliminate the opponent by reducing their energy to 0.
+Secondary Objective: Outlast the opponent by having more energy when the total number of turns is reached.
+Draw: If both players have equal energy at the end of the final turn.
+
+"
+
+[node name="TurnTotal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 830.0
+offset_top = 278.0
+offset_right = 992.0
+offset_bottom = 301.0
+text = "Please Set Turn Total"
+
+[node name="TurnInput" type="SpinBox" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 315.0
+offset_right = 955.063
+offset_bottom = 346.0
+min_value = 1.0
+value = 10.0
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 362.0
+offset_right = 943.0
+offset_bottom = 393.0
+text = "Confirm"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 605.0
+offset_right = 1146.0
+offset_bottom = 636.0
+text = "Exit"
+
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

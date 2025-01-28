@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyoet8r3hn0df"]
+
+[ext_resource type="Script" path="res://scripts/splash.gd" id="1_65h4d"]
+[ext_resource type="Texture2D" uid="uid://uub44po7leqe" path="res://assets/images/Background.png" id="2_3oci0"]
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65h4d")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_3oci0")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 440.0
+offset_right = 604.0
+offset_bottom = 506.0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

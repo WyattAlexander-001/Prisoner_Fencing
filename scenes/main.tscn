@@ -1,0 +1,292 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjnnh4ej7cc2r"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_bpswq"]
+[ext_resource type="Texture2D" uid="uid://dd252em17u84h" path="res://assets/images/background_jail.jpg" id="2_gl4rs"]
+[ext_resource type="FontFile" uid="uid://b3idqngq613wn" path="res://assets/font/jailbird/JAIL.TTF" id="3_w2lr7"]
+[ext_resource type="Texture2D" uid="uid://b5lkuf4amvdjf" path="res://assets/images/empty.png" id="4_1bp42"]
+[ext_resource type="Texture2D" uid="uid://x6monckp6w36" path="res://assets/images/Shadow.png" id="4_hk5eh"]
+[ext_resource type="LabelSettings" uid="uid://bua5ep028ht0n" path="res://assets/font/shadowForFont.tres" id="6_1pw3i"]
+[ext_resource type="FontFile" uid="uid://dburplj3daqd1" path="res://assets/font/moderniz/Moderniz.otf" id="7_4cc21"]
+[ext_resource type="AudioStream" uid="uid://7foj6dun7orr" path="res://assets/sound/key-click.mp3" id="7_7e347"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3arlo"]
+font_size = 64
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2.98, 2.02)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0ri5n"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpswq")
+metadata/_edit_horizontal_guides_ = [647.0]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -70.0
+offset_right = 1171.0
+offset_bottom = 752.0
+texture = ExtResource("2_gl4rs")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 59.0
+offset_right = 873.0
+offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("3_w2lr7")
+theme_override_font_sizes/font_size = 64
+text = "Prisoner's Fencing"
+label_settings = SubResource("LabelSettings_3arlo")
+horizontal_alignment = 1
+
+[node name="Shadows" type="HBoxContainer" parent="."]
+material = SubResource("CanvasItemMaterial_0ri5n")
+layout_mode = 0
+offset_left = -31.0
+offset_top = 202.0
+offset_right = 1130.0
+offset_bottom = 325.0
+alignment = 1
+
+[node name="SquareShadow" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="SquareShadow2" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="SquareShadow3" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="SquareShadow4" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="SquareShadow5" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="SquareShadow6" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="SquareShadow7" type="TextureRect" parent="Shadows"]
+layout_mode = 2
+texture = ExtResource("4_hk5eh")
+expand_mode = 2
+
+[node name="BoardContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 197.0
+offset_right = 1132.0
+offset_bottom = 320.0
+alignment = 1
+
+[node name="Square0" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square1" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square2" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square3" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square4" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square5" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square6" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="PlayerInfoContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 315.0
+offset_right = 973.0
+offset_bottom = 365.0
+
+[node name="Player1Info" type="VBoxContainer" parent="PlayerInfoContainer"]
+layout_mode = 2
+
+[node name="P1Position" type="Label" parent="PlayerInfoContainer/Player1Info"]
+layout_mode = 2
+label_settings = ExtResource("6_1pw3i")
+
+[node name="P1Energy" type="Label" parent="PlayerInfoContainer/Player1Info"]
+layout_mode = 2
+label_settings = ExtResource("6_1pw3i")
+
+[node name="Spacer" type="Container" parent="PlayerInfoContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Player2Info" type="VBoxContainer" parent="PlayerInfoContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="P2Position" type="Label" parent="PlayerInfoContainer/Player2Info"]
+layout_mode = 2
+label_settings = ExtResource("6_1pw3i")
+horizontal_alignment = 2
+
+[node name="P2Energy" type="Label" parent="PlayerInfoContainer/Player2Info"]
+layout_mode = 2
+label_settings = ExtResource("6_1pw3i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 366.0
+offset_right = 875.0
+offset_bottom = 431.0
+
+[node name="WaitButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("7_4cc21")
+text = "WAIT 
+(1)"
+
+[node name="RetreatButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("7_4cc21")
+text = "RETREAT
+(2)"
+
+[node name="AdvanceButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("7_4cc21")
+text = "ADVANCE
+(3)"
+
+[node name="AttackButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("7_4cc21")
+text = "ATTACK
+(4)"
+
+[node name="CounterButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("7_4cc21")
+text = "COUNTER
+(5)"
+
+[node name="LockInButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 435.0
+offset_right = 875.0
+offset_bottom = 487.0
+theme_override_colors/font_hover_color = Color(1, 0.960938, 0, 1)
+theme_override_fonts/font = ExtResource("7_4cc21")
+text = "LOCK IN
+(SPACE)"
+
+[node name="MessageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 525.0
+offset_right = 808.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 32
+label_settings = ExtResource("6_1pw3i")
+horizontal_alignment = 1
+
+[node name="Player1Audio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -6.0
+
+[node name="Player2Audio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -6.0
+
+[node name="KeyClickAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7e347")
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 997.0
+offset_top = 599.0
+offset_right = 1051.0
+offset_bottom = 630.0
+text = "RESET"
+
+[node name="ConcedeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1061.0
+offset_top = 599.0
+offset_right = 1145.0
+offset_bottom = 630.0
+text = "CONCEDE"
+
+[node name="ChangeTurnTotal" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 602.0
+offset_right = 156.0
+offset_bottom = 633.0
+text = "Go Back To Menu"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 602.0
+offset_right = 198.0
+offset_bottom = 633.0
+text = "Exit"
+
+[connection signal="pressed" from="HBoxContainer/WaitButton" to="." method="_on_wait_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RetreatButton" to="." method="_on_retreat_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AdvanceButton" to="." method="_on_advance_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CounterButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CounterButton" to="." method="_on_counter_button_pressed"]
+[connection signal="pressed" from="LockInButton" to="." method="_on_lock_in_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ConcedeButton" to="." method="_on_concede_button_pressed"]
+[connection signal="pressed" from="ChangeTurnTotal" to="." method="_on_change_turn_total_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

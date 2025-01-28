@@ -1,0 +1,237 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjnnh4ej7cc2r"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_bpswq"]
+[ext_resource type="Texture2D" uid="uid://dd252em17u84h" path="res://assets/images/background_jail.jpg" id="2_gl4rs"]
+[ext_resource type="FontFile" uid="uid://b3idqngq613wn" path="res://assets/font/jailbird/JAIL.TTF" id="3_w2lr7"]
+[ext_resource type="Texture2D" uid="uid://b5lkuf4amvdjf" path="res://assets/images/empty.png" id="4_1bp42"]
+[ext_resource type="AudioStream" uid="uid://nn5m36c13bnl" path="res://assets/sound/Lonely Man - Alex Hamlin.mp3" id="4_53yew"]
+[ext_resource type="FontFile" uid="uid://ba8jj6hg1xnm1" path="res://assets/font/jumper_3/JumperPERSONALUSEONLY-Black.ttf" id="5_138l7"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpswq")
+metadata/_edit_horizontal_guides_ = [647.0]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -70.0
+offset_right = 1171.0
+offset_bottom = 752.0
+texture = ExtResource("2_gl4rs")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = -2.0
+offset_right = 566.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("3_w2lr7")
+theme_override_font_sizes/font_size = 64
+text = "Prisoner's Fencing"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 326.0
+offset_right = 454.0
+offset_bottom = 632.0
+tooltip_text = "Original Idea By Reddit User: Super_Difference6346"
+theme_override_font_sizes/normal_font_size = 16
+text = "2-Player Turn-Based Strategy Game
+Goal Is Having More Energy Or Kill By 10 Turns
+
+WAIT – Gain +1 energy.
+
+RETREAT – Move one square away from the opponent, -2 energy .
+
+ADVANCE – Move one square toward the opponent if possible, -2 energy.
+
+ATTACK – If the opponent is adjacent, they lose 3 energy, -1 energy."
+scroll_active = false
+
+[node name="BoardContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 94.0
+offset_right = 1132.0
+offset_bottom = 217.0
+alignment = 1
+
+[node name="Square0" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square1" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square2" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square3" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square4" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square5" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="Square6" type="TextureRect" parent="BoardContainer"]
+layout_mode = 2
+texture = ExtResource("4_1bp42")
+expand_mode = 2
+
+[node name="PlayerInfoContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 257.0
+offset_right = 954.0
+offset_bottom = 307.0
+
+[node name="Player1Info" type="VBoxContainer" parent="PlayerInfoContainer"]
+layout_mode = 2
+
+[node name="P1Position" type="Label" parent="PlayerInfoContainer/Player1Info"]
+layout_mode = 2
+
+[node name="P1Energy" type="Label" parent="PlayerInfoContainer/Player1Info"]
+layout_mode = 2
+
+[node name="Spacer" type="Container" parent="PlayerInfoContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Player2Info" type="VBoxContainer" parent="PlayerInfoContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="P2Position" type="Label" parent="PlayerInfoContainer/Player2Info"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="P2Energy" type="Label" parent="PlayerInfoContainer/Player2Info"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 357.0
+offset_right = 926.0
+offset_bottom = 422.0
+
+[node name="WaitButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("5_138l7")
+text = "WAIT"
+
+[node name="RetreatButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("5_138l7")
+text = "RETREAT"
+
+[node name="AdvanceButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("5_138l7")
+text = "ADVANCE"
+
+[node name="AttackButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("5_138l7")
+text = "ATTACK"
+
+[node name="CounterButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.960784, 0, 1)
+theme_override_fonts/font = ExtResource("5_138l7")
+text = "COUNTER"
+
+[node name="LockInButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 426.0
+offset_right = 926.0
+offset_bottom = 476.0
+theme_override_colors/font_hover_color = Color(1, 0.960938, 0, 1)
+theme_override_fonts/font = ExtResource("5_138l7")
+text = "LOCK IN"
+
+[node name="TurnLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 603.165
+offset_top = 315.0
+offset_right = 726.165
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 32
+text = "TURN: 1"
+
+[node name="MessageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 523.0
+offset_right = 554.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 32
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(63, 151)
+stream = ExtResource("4_53yew")
+volume_db = -10.0
+autoplay = true
+
+[node name="Player1Audio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Player2Audio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 572.0
+offset_right = 610.0
+offset_bottom = 580.0
+text = "RESET"
+
+[node name="ConcedeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 841.0
+offset_top = 570.0
+offset_right = 925.0
+offset_bottom = 601.0
+text = "CONCEDE"
+
+[connection signal="pressed" from="HBoxContainer/WaitButton" to="." method="_on_wait_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RetreatButton" to="." method="_on_retreat_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AdvanceButton" to="." method="_on_advance_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CounterButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CounterButton" to="." method="_on_counter_button_pressed"]
+[connection signal="pressed" from="LockInButton" to="." method="_on_lock_in_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ConcedeButton" to="." method="_on_concede_button_pressed"]

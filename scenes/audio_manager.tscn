@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bitbuc0mshgn4"]
+
+[ext_resource type="Script" path="res://audio_manager.gd" id="1_mgls0"]
+[ext_resource type="AudioStream" uid="uid://dndqif28a27d1" path="res://assets/sound/To Pass Time - Godmode.mp3" id="1_xhebc"]
+[ext_resource type="AudioStream" uid="uid://nn5m36c13bnl" path="res://assets/sound/Lonely Man - Alex Hamlin.mp3" id="2_2lurr"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_mgls0")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_xhebc")
+volume_db = -10.0
+autoplay = true
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2lurr")
+volume_db = -10.0
